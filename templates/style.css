@@ -1,0 +1,106 @@
+html{
+  font-size:16px;
+  min-width:320px
+}
+body{
+  font-family:'PT Serif',serif;
+  font-size:1.25rem
+}
+h1,h2,h3,h4,h5,h6,ul{
+  font-family:sans-serif;
+  font-size:3.125rem
+}
+p{
+  line-height:1.7
+}
+a{
+  text-decoration:none;
+  border-bottom:2px dotted black;
+}
+h1.name a {
+  border-bottom: 0px;
+}
+main{
+  margin-top:2.75rem
+}
+a:visited{
+  color: black;
+}
+body>header{
+  display:flex;
+  max-width:60rem;
+  margin-top:1rem;
+  margin-right:auto;
+  margin-left:auto;
+  justify-content:space-between
+}
+.topics{
+  display:inline-flex
+}
+.topics,body>header h1{
+  font-size:1.5rem
+}
+.thoughts{
+  font-size:40px;
+}
+.thoughts li {
+  margin-bottom: 24px;
+}
+.thoughts time {
+  font-size: 20px;
+}
+.thoughts .title {
+  margin-top: 8px;
+}
+@media only screen and (min-width:320px) and (max-width:600px){
+  body>header,footer,main{
+      margin-left:1rem;
+      margin-right:1rem
+  }
+  body>header{
+      display:block;
+      text-align:center
+  }
+  .topics{
+    margin-top:24px
+  }
+  .thoughts{
+    font-size:20px;
+  }
+  .thoughts time {
+    font-size: 16px;
+  }
+  .thoughts a {
+    line-height: 30px;
+  }
+}
+@media only screen and (min-width:600px){
+  body>header,footer,main{
+      margin-left:2rem;
+      margin-right:2rem;
+      max-width:60rem;
+      display:flex
+  }
+}
+@media only screen and (min-width:960px){
+  body>header,footer,main{
+      margin-left:auto;
+      margin-right:auto
+  }
+}
+article header time{
+  margin-bottom: 8px;
+  display:flex;
+  font-family:sans-serif
+}
+article p{
+  margin-top:2rem;
+  text-indent:1.5em;
+}
+footer{
+  display:flex;
+  justify-content:center;
+  margin-top:2rem;
+  margin-bottom:2rem;
+  font-family:sans-serif
+}
