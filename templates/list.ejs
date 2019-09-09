@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="styles.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1 class="name">
+        <a href="index.html">markstahl.org</a>
+      </h1>
+      <ul class="topics">
+        <li>
+          <a href="index.html">Posts</a>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <ul class="thoughts">
+        <% posts.forEach(p => { %>
+          <li>
+            <time>
+              <%= p.date %>
+            </time>
+            <div class="title">
+              <a href="<%= p.href %>">
+                <%= p.title %>
+              </a>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    </main>
+    <footer>
+      &copy; 2019
+      &nbsp;<a href="/rss.xml">RSS</a>
+    </footer>
+  </body>
+</html>

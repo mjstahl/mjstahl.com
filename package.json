@@ -4,8 +4,10 @@
   "description": "markstahl.org site",
   "main": "bin.js",
   "scripts": {
-    "build": "./bin.js",
+    "build": "run-s clean generate build-css",
     "build-css": "cat templates/*.css | postcss -u cssnano > build/styles.css",
+    "clean": "rimraf build/",
+    "generate": "./bin.js",
     "lint": "standard --fix"
   },
   "repository": {
@@ -22,8 +24,11 @@
     "cssnano": "^4.1.10",
     "ejs": "^2.7.1",
     "marked": "^0.7.0",
+    "mkdirp": "^0.5.1",
     "moment": "^2.24.0",
+    "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.3",
+    "rimraf": "^3.0.0",
     "standard": "^14.1.0"
   }
 }
