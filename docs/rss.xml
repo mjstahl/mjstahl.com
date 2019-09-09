@@ -7,21 +7,21 @@
       <url>https://avatars2.githubusercontent.com/u/212726?s=88</url>
       <link>https://markstahl.org</link>
     </image>
-    <% posts.forEach(p => { %>
+    
       <item>
         <title>
-          <%= p.title %>
+          Hello world hello world
         </title>
         <description>
-          <%= p.title %>
+          Hello world hello world
         </description>
         <pubDate>
-          <%= p.utc %>
+          Wed, 21 Aug 2019 04:00:00 GMT
         </pubDate>
         <link>
-          https://markstahl.org/<%= p.href %>
+          https://markstahl.org/19-08-21-hello-world-hello-world.html
         </link>
       </item>
-    <% }) %>
+    
   </channel>
 </rss>

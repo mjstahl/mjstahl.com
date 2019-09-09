@@ -18,11 +18,21 @@ function dateAndTitle (str) {
   const title = str.split('-').slice(3).join(' ')
   return [
     moment(date, 'YY-MM-DD').format('DD MMM YY'),
-    title.charAt(0).toUpperCase() + title.slice(1)
+    title.charAt(0).toUpperCase() + title.slice(1),
+    moment(date, 'YY-MM-DD').toDate().toUTCString()
   ]
 }
 
-function exitWithError(err) {
+function writeListTemplate (template, data, output) {
+  ejs.renderFile(template, { posts: data }, {}, (err, result) => {
+    if (err) exitWithError(err)
+
+    const outputFile = path.join(BUILD_DIR, output)
+    fs.writeFileSync(outputFile, result)
+  })
+}
+
+function exitWithError (err) {
   console.error(err)
   process.exit(1)
 }
@@ -34,15 +44,15 @@ fs.readdirSync(CONTENT_DIR).map(file => {
   const baseFilename = path.basename(file, '.md')
   const source = fs.readFileSync(path.join(CONTENT_DIR, file))
 
-  const [date, title] = dateAndTitle(baseFilename)
-  const { metadata, content } = metadataParser(source.toString())
+  const [date, title, utc] = dateAndTitle(baseFilename)
+  const { /** metadata, */ content } = metadataParser(source.toString())
   const body = marked(content)
 
   const postTemplate = path.join(TEMPLATE_DIR, 'post.ejs')
   ejs.renderFile(postTemplate, { body, date, title }, {}, (err, result) => {
     if (err) exitWithError(err)
 
-    posts.push({ date, href: `${baseFilename}.html`, title })
+    posts.push({ date, href: `${baseFilename}.html`, title, utc })
 
     const outputFile = path.join(BUILD_DIR, `${baseFilename}.html`)
     fs.writeFileSync(outputFile, result)
@@ -50,9 +60,7 @@ fs.readdirSync(CONTENT_DIR).map(file => {
 })
 
 const listTemplate = path.join(TEMPLATE_DIR, 'list.ejs')
-ejs.renderFile(listTemplate, { posts }, {}, (err, result) => {
-  if (err) exitWithError(err)
+writeListTemplate(listTemplate, posts, 'index.html')
 
-  const outputFile = path.join(BUILD_DIR, 'index.html')
-  fs.writeFileSync(outputFile, result)
-})
+const rssTemplate = path.join(TEMPLATE_DIR, 'rss.ejs')
+writeListTemplate(rssTemplate, posts, 'rss.xml')
