@@ -5,8 +5,8 @@
   "main": "bin.js",
   "scripts": {
     "build": "run-s clean generate build-css",
-    "build-css": "cat templates/*.css | postcss -u cssnano > build/styles.css",
-    "clean": "rimraf build/",
+    "build-css": "cat templates/*.css | postcss -u cssnano > docs/styles.css",
+    "clean": "rimraf docs/",
     "generate": "./bin.js",
     "lint": "standard --fix"
   },

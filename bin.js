@@ -9,9 +9,9 @@ const moment = require('moment')
 const path = require('path')
 const process = require('process')
 
-const BUILD_DIR = 'build'
+const BUILD_DIR = 'docs'
 const CONTENT_DIR = 'content'
-const TEMPLATE_DIR = './templates'
+const TEMPLATE_DIR = 'templates'
 
 function dateAndTitle (str) {
   const date = str.split('-').slice(0, 3).join('-')
