@@ -23,6 +23,7 @@
   "devDependencies": {
     "cssnano": "^4.1.10",
     "ejs": "^2.7.1",
+    "markdown-yaml-metadata-parser": "^2.0.2",
     "marked": "^0.7.0",
     "mkdirp": "^0.5.1",
     "moment": "^2.24.0",

@@ -4,6 +4,7 @@ const ejs = require('ejs')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
 const marked = require('marked')
+const metadataParser = require('markdown-yaml-metadata-parser')
 const moment = require('moment')
 const path = require('path')
 const process = require('process')
@@ -26,10 +27,11 @@ mkdirp.sync(BUILD_DIR)
 const posts = []
 fs.readdirSync(CONTENT_DIR).map(file => {
   const baseFilename = path.basename(file, '.md')
-  const post = fs.readFileSync(path.join(CONTENT_DIR, file))
+  const source = fs.readFileSync(path.join(CONTENT_DIR, file))
 
   const [date, title] = dateAndTitle(baseFilename)
-  const body = marked(post.toString())
+  const { metadata, content } = metadataParser(source.toString())
+  const body = marked(content)
 
   const postTemplate = path.join(TEMPLATE_DIR, 'post.ejs')
   ejs.renderFile(postTemplate, { body, date, title }, {}, (err, result) => {
