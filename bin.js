@@ -38,6 +38,9 @@ function exitWithError (err) {
 }
 
 mkdirp.sync(BUILD_DIR)
+fs.copyFileSync(
+  path.join(TEMPLATE_DIR, 'CNAME'),
+  path.join(BUILD_DIR, 'CNAME'))
 
 const posts = []
 fs.readdirSync(CONTENT_DIR).map(file => {
