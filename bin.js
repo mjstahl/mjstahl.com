@@ -47,8 +47,10 @@ fs.readdirSync(CONTENT_DIR).map(file => {
   const baseFilename = path.basename(file, '.md')
   const source = fs.readFileSync(path.join(CONTENT_DIR, file))
 
-  const [date, title, utc] = dateAndTitle(baseFilename)
-  const { /** metadata, */ content } = metadataParser(source.toString())
+  let [date, title, utc] = dateAndTitle(baseFilename)
+  const { metadata, content } = metadataParser(source.toString())
+
+  title = (metadata.title) ? metadata.title : title
   const body = marked(content)
 
   const postTemplate = path.join(TEMPLATE_DIR, 'post.ejs')
