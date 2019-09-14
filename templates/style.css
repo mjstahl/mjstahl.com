@@ -101,10 +101,19 @@ article p{
   margin-top:2rem;
   text-indent:1.5em;
 }
-footer{
+
+.centered {
   display:flex;
   justify-content:center;
-  margin-top:2rem;
+}
+
+.feedback {
+  margin-top: 32px;
+  font-size: 24px;
+}
+
+footer {
+  margin-top:3rem;
   margin-bottom:2rem;
   font-family:sans-serif
 }

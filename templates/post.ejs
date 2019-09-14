@@ -11,14 +11,14 @@
   </head>
   <body>
     <header>
+      <h1 class="name">
+        <a href="/">Mark Stahl</a>
+      </h1>
       <ul class="topics">
         <li>
           <a href="/">Posts</a>
         </li>
       </ul>
-      <h1 class="name">
-        <a href="/">Mark Stahl</a>
-      </h1>
     </header>
     <main>
       <article>
@@ -31,9 +31,14 @@
           </h1>
         </header>
         <%- body %>
+        <div class="feedback centered">
+          <a href="mailto:mjstahl@gmail.com?subject=<%= encodeURIComponent(`RE: ${title}`) %>">
+            What are you thinking?
+          </a>
+        </div>
       </article>
     </main>
-    <footer>
+    <footer class="centered">
       &copy; 2019
       &nbsp;<a href="rss.xml">RSS</a>
     </footer>
