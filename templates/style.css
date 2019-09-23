@@ -127,7 +127,7 @@ article p {
 }
 
 article blockquote {
-  border-left: 4px solid black;
+  border-left: 2px solid black;
   padding-left: 24px;
   margin-left: 24px;
 }
