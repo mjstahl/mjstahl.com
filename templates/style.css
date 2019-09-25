@@ -10,16 +10,24 @@ body {
   font-size: 20px;
 }
 
-h1, h2, h3, h4, h5, h6, ul{
+h1, h2, h3, h4, h5, h6 {
   font-family: sans-serif;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 
-p {
-  line-height: 32.36px;
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+em {
+  font-style: italic;
 }
 
 a {
@@ -57,9 +65,15 @@ body > header {
   font-size: 24px;
 }
 
+.topics {
+  list-style: none;
+}
+
 .thoughts {
+  font-family: sans-serif;
   margin-top: -18px;
   font-size: 40px;
+  list-style: none;
 }
 
 .thoughts li {
@@ -74,8 +88,66 @@ body > header {
   margin-top: 8px;
 }
 
+article header {
+  margin-bottom: 32px;
+}
+
+article header time {
+  margin-bottom: 8px;
+  display: flex;
+  font-family: sans-serif
+}
+
+article h2 {
+  margin-bottom: 16px;
+}
+
+article p, article li {
+  line-height: 32.36px;
+}
+
+article p, article ul, article ol, article blockquote {
+  margin-bottom: 32px;
+}
+
+article p {
+  text-indent: 24px;
+}
+
+article p:last-child {
+  margin-bottom: 0px;
+}
+
+article ol, article ul, article blockquote {
+  margin-left: 24px;
+}
+
+article blockquote {
+  border-left: 2px solid black;
+  padding-left: 24px;
+}
+
+article blockquote p {
+  text-indent: 0px;
+}
+
+article ul, article ol {
+  padding-left: 20px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  margin-top: 48px;
+  margin-bottom: 16px;
+  font-family: sans-serif
+}
+
 @media only screen and (min-width:320px) and (max-width:600px){
-  body >header, footer, main{
+  body > header, footer, main {
       margin-left: 16px;
       margin-right: 16px;
   }
@@ -100,6 +172,10 @@ body > header {
   .thoughts a {
     line-height: 30px;
   }
+
+  article ol, article ul, article blockquote {
+    margin-left: 0px;
+  }
 }
 
 @media only screen and (min-width:600px) {
@@ -116,36 +192,4 @@ body > header {
       margin-left: auto;
       margin-right: auto
   }
-}
-
-article header time {
-  margin-bottom: 8px;
-  display: flex;
-  font-family: sans-serif
-}
-
-article p {
-  margin-top: 32px;
-  text-indent: 24px;
-}
-
-article blockquote {
-  border-left: 2px solid black;
-  padding-left: 24px;
-  margin-left: 24px;
-}
-
-blockquote p {
-  text-indent: 0px;
-}
-
-.centered {
-  display: flex;
-  justify-content: center;
-}
-
-footer {
-  margin-top: 48px;
-  margin-bottom: 16px;
-  font-family: sans-serif
 }

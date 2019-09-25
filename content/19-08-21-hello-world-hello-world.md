@@ -2,6 +2,10 @@
 title: Testing out metadata, we can use this for headers
 ---
 
+*Hello World this is a intro.*
+
+## Chapter 1
+
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 Lorem Ipsum has been the industry's standard dummy text ever since the
 1500s, when an unknown printer took a galley of type and scrambled it to
@@ -22,3 +26,12 @@ publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 > book is a treatise on the theory of ethics, very popular during the
 > Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
 > comes from a line in section 1.10.32.
+
+* Hello
+* World
+* Foo
+* Bar
+
+1. Item1
+2. Item2
+3. Item3
