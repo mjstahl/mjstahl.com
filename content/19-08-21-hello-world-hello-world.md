@@ -2,8 +2,6 @@
 title: Testing out metadata, we can use this for headers
 ---
 
-*Hello World this is a intro.*
-
 ## Chapter 1
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry.

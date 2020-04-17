@@ -6,36 +6,35 @@
     <title>Mark Stahl - <%= title %></title>
     <link rel="icon" type="image/png" href="https://avatars2.githubusercontent.com/u/212726?s=32">
     <link rel="alternate" type="application/rss+xml" href="rss.xml" title="Mark Stahl">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link href="styles.css" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <h1 class="name">
-        <a href="/">Mark Stahl</a>
+        <a href="/">mark stahl</a>
       </h1>
       <ul class="topics">
         <li>
-          <a href="/">Posts</a>
+          <a href="/">posts</a>
         </li>
       </ul>
     </header>
     <main>
       <article>
         <header>
-          <time>
-            <%= date %>
-          </time>
           <h1>
             <%= title %>
           </h1>
         </header>
+        <p class="date">
+          <%= date %>
+        </p>
         <%- body %>
       </article>
     </main>
     <footer class="centered">
-      &copy; 2019
-      &nbsp;<a href="rss.xml">RSS</a>
+      &copy; <%= year %>
     </footer>
   </body>
 </html>

@@ -1,29 +1,34 @@
 @import 'reset.css';
 
 html {
-  font-size: 16px;
-  min-width: 320px
+  min-width: 320px;
+  background-color: #fcf8e8;
+  font-size: 20px;
+  font-weight: normal;
 }
 
 body {
-  font-family: 'PT Serif', serif;
-  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'Rubik', sans-serif;
+  color: #393e46;
 }
 
-h1, h2, h3, h4, h5, h6, .topics {
-  font-family: sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Baskerville', serif;
+  color: #222831;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 45px;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 32px;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 em {
@@ -33,10 +38,11 @@ em {
 a {
   color: black;
   text-decoration: none;
-  border-bottom: 2px dotted black;
+  border-bottom: 2px solid blue;
 }
 
 h1.name a {
+  font-family: 'Rubik', sans-serif;
   border-bottom: 0px;
 }
 
@@ -50,10 +56,7 @@ a:visited {
 
 body > header {
   display: flex;
-  max-width: 960px;
   margin-top: 16px;
-  margin-right: auto;
-  margin-left: auto;
   justify-content: space-between
 }
 
@@ -70,10 +73,16 @@ body > header {
 }
 
 .thoughts {
-  font-family: sans-serif;
+  font-family: 'Libre Baskerville', serif;
   margin-top: -18px;
   font-size: 40px;
   list-style: none;
+  text-align: center;
+}
+
+.thoughts a {
+  line-height: 45px;
+  border-bottom: 0px;
 }
 
 .thoughts li {
@@ -81,6 +90,7 @@ body > header {
 }
 
 .thoughts time {
+  font-family: 'Rubik', serif;
   font-size: 20px;
 }
 
@@ -90,12 +100,12 @@ body > header {
 
 article header {
   margin-bottom: 32px;
+  text-align: center;
 }
 
-article header time {
-  margin-bottom: 8px;
-  display: flex;
-  font-family: sans-serif
+article .date {
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 article h2 {
@@ -143,18 +153,18 @@ article ul, article ol {
 footer {
   margin-top: 48px;
   margin-bottom: 16px;
-  font-family: sans-serif
+  font-size: 16px;
 }
 
 @media only screen and (min-width:320px) and (max-width:600px){
   body > header, footer, main {
-      margin-left: 16px;
-      margin-right: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   body > header {
-      display: block;
-      text-align: center
+    display: block;
+    text-align: center
   }
 
   .topics {
@@ -162,11 +172,11 @@ footer {
   }
 
   .thoughts {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .thoughts time {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .thoughts a {
@@ -180,16 +190,16 @@ footer {
 
 @media only screen and (min-width:600px) {
   body > header, footer, main {
-      margin-left: 32px;
-      margin-right: 32px;
-      max-width: 960px;
-      display: flex
+    margin-left: 32px;
+    margin-right: 32px;
+    max-width: 960px;
+    display: flex;
   }
 }
 
 @media only screen and (min-width:960px) {
   body > header, footer, main {
-      margin-left: auto;
-      margin-right: auto
+    margin-left: auto;
+    margin-right: auto;
   }
 }

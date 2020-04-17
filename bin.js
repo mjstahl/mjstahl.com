@@ -13,18 +13,21 @@ const BUILD_DIR = 'docs'
 const CONTENT_DIR = 'content'
 const TEMPLATE_DIR = 'templates'
 
+const YEAR = (new Date()).getFullYear()
+
 function dateAndTitle (str) {
   const date = str.split('-').slice(0, 3).join('-')
   const title = str.split('-').slice(3).join(' ')
   return [
-    moment(date, 'YY-MM-DD').format('DD MMM YY'),
+    moment(date, 'YY-MM-DD').format('DD MMMM YY'),
     title.charAt(0).toUpperCase() + title.slice(1),
     moment(date, 'YY-MM-DD').toDate().toUTCString()
   ]
 }
 
-function writeListTemplate (template, data, output) {
-  ejs.renderFile(template, { posts: data }, {}, (err, result) => {
+function writeListTemplate (template, posts, output) {
+  const data = { posts, year: YEAR }
+  ejs.renderFile(template, data, {}, (err, result) => {
     if (err) exitWithError(err)
 
     const outputFile = path.join(BUILD_DIR, output)
@@ -54,7 +57,8 @@ fs.readdirSync(CONTENT_DIR).map(file => {
   const body = marked(content)
 
   const postTemplate = path.join(TEMPLATE_DIR, 'post.ejs')
-  ejs.renderFile(postTemplate, { body, date, title }, {}, (err, result) => {
+  const data = { body, date, title, year: YEAR }
+  ejs.renderFile(postTemplate, data, {}, (err, result) => {
     if (err) exitWithError(err)
 
     posts.push({ date, href: `${baseFilename}.html`, title, utc })
