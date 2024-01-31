@@ -9,7 +9,8 @@ const moment = require('moment')
 const path = require('path')
 const process = require('process')
 
-const BUILD_DIR = 'output'
+// Required to be docs to fulfill Github Pages configuration requirements
+const BUILD_DIR = 'docs'
 const CONTENT_DIR = 'input'
 const TEMPLATE_DIR = 'templates'
 
@@ -64,6 +65,7 @@ fs.readdirSync(CONTENT_DIR).map(file => {
     posts.push({ date, href: `${baseFilename}.html`, title, utc })
 
     const outputFile = path.join(BUILD_DIR, `${baseFilename}.html`)
+    console.log(`${baseFilename} >>> ${title}`)
     fs.writeFileSync(outputFile, result)
   })
 })
