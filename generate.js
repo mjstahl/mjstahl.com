@@ -3,14 +3,14 @@
 const ejs = require('ejs')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
-const marked = require('marked')
+const { marked } = require('marked')
 const metadataParser = require('markdown-yaml-metadata-parser')
 const moment = require('moment')
 const path = require('path')
 const process = require('process')
 
-const BUILD_DIR = 'docs'
-const CONTENT_DIR = 'content'
+const BUILD_DIR = 'output'
+const CONTENT_DIR = 'input'
 const TEMPLATE_DIR = 'templates'
 
 const YEAR = (new Date()).getFullYear()
