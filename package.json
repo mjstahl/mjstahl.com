@@ -4,12 +4,12 @@
   "description": "mjstahl.com",
   "main": "bin.js",
   "scripts": {
-    "build": "run-s clean gen build-css",
-    "build-css": "cat templates/*.css | postcss -u cssnano > docs/styles.css",
-    "clean": "rimraf docs/",
-    "gen": "./generate.js",
-    "lint": "standard --fix",
-    "start": "npx http-server docs"
+    "build": "run-s __lint __clean __generate __build-css",
+    "start": "npx http-server docs",
+    "__build-css": "cat templates/*.css | postcss -u cssnano > docs/styles.css",
+    "__clean": "rimraf docs/",
+    "__generate": "./generate.js",
+    "__lint": "standard --fix"
   },
   "repository": {
     "type": "git",
