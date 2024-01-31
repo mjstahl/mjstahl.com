@@ -6,7 +6,7 @@
   "scripts": {
     "build": "run-s __lint __clean __generate __build-css",
     "start": "npx http-server docs",
-    "__build-css": "cat templates/*.css | postcss -u cssnano > docs/styles.css",
+    "__build-css": "postcss templates/style.css > docs/styles.css",
     "__clean": "rimraf docs/",
     "__generate": "./generate.js",
     "__lint": "standard --fix"
