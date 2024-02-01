@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <rss version="2.0">
   <channel>
-    <title>Mark Stahl</title>
-    <link>https://markstahl.org</link>
+    <title>MJ Stahl</title>
+    <link>https://mjstahl.com</link>
     <image>
       <url>https://avatars2.githubusercontent.com/u/212726?s=88</url>
-      <link>https://markstahl.org</link>
+      <link>https://mjstahl.com</link>
     </image>
     
       <item>
@@ -19,7 +19,7 @@
           Wed, 21 Aug 2019 04:00:00 GMT
         </pubDate>
         <link>
-          https://markstahl.org/19-08-21-hello-world-hello-world.html
+          https://mjstahl.com/19-08-21-hello-world-hello-world.html
         </link>
       </item>
     

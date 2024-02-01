@@ -5,17 +5,18 @@
   "main": "bin.js",
   "scripts": {
     "build": "run-s __lint __clean __generate __build-css",
-    "start": "npx http-server docs",
+    "start": "run-s build __serve",
     "__build-css": "postcss templates/style.css > docs/styles.css",
     "__clean": "rimraf docs/",
     "__generate": "./generate.js",
-    "__lint": "standard --fix"
+    "__lint": "standard --fix",
+    "__serve": "npx http-server docs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mjstahl/markstahl.org.git"
   },
-  "author": "Mark Stahl <mjstahl@gmail.com>",
+  "author": "MJ Stahl <hello@mjstahl.com>",
   "license": "CC-BY-SA-4.0",
   "bugs": {
     "url": "https://github.com/mjstahl/markstahl.org/issues"

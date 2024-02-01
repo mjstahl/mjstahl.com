@@ -65,8 +65,9 @@ fs.readdirSync(CONTENT_DIR).map(file => {
     posts.push({ date, href: `${baseFilename}.html`, title, utc })
 
     const outputFile = path.join(BUILD_DIR, `${baseFilename}.html`)
-    console.log(`${baseFilename} >>> ${title}`)
     fs.writeFileSync(outputFile, result)
+
+    console.log(`${baseFilename} >>> ${title}`)
   })
 })
 
