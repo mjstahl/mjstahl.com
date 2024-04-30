@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 
-const ejs = require('ejs')
-const fs = require('fs')
-const mkdirp = require('mkdirp')
-const { marked } = require('marked')
-const metadataParser = require('markdown-yaml-metadata-parser')
-const moment = require('moment')
-const path = require('path')
-const process = require('process')
+import { parse, format } from 'date-fns'
+import ejs from 'ejs'
+import fs from 'fs'
+import { marked } from 'marked'
+import metadataParser from 'markdown-yaml-metadata-parser'
+import mkdirp from 'mkdirp'
+import path from 'path'
+import process from 'process'
 
-// Required to be docs to fulfill Github Pages configuration requirements
 const BUILD_DIR = 'docs'
 const CONTENT_DIR = 'input'
 const TEMPLATE_DIR = 'templates'
@@ -17,12 +16,13 @@ const TEMPLATE_DIR = 'templates'
 const YEAR = (new Date()).getFullYear()
 
 function dateAndTitle (str) {
-  const date = str.split('-').slice(0, 3).join('-')
   const title = str.split('-').slice(3).join(' ')
+  const date =
+    parse(str.split('-').slice(0, 3).join('-'), 'dd-MM-yy', new Date())
   return [
-    moment(date, 'YY-MM-DD').format('DD MMMM YY'),
+    format(date, 'd MMMM yy'),
     title.charAt(0).toUpperCase() + title.slice(1),
-    moment(date, 'YY-MM-DD').toDate().toUTCString()
+    date.toUTCString()
   ]
 }
 
@@ -42,12 +42,9 @@ function exitWithError (err) {
 }
 
 mkdirp.sync(BUILD_DIR)
-fs.copyFileSync(
-  path.join(TEMPLATE_DIR, 'CNAME'),
-  path.join(BUILD_DIR, 'CNAME'))
+fs.copyFileSync(path.join(TEMPLATE_DIR, 'CNAME'), path.join(BUILD_DIR, 'CNAME'))
 
-const posts = []
-fs.readdirSync(CONTENT_DIR).map(file => {
+const posts = fs.readdirSync(CONTENT_DIR).map(file => {
   const baseFilename = path.basename(file, '.md')
   const source = fs.readFileSync(path.join(CONTENT_DIR, file))
 
@@ -62,13 +59,12 @@ fs.readdirSync(CONTENT_DIR).map(file => {
   ejs.renderFile(postTemplate, data, {}, (err, result) => {
     if (err) exitWithError(err)
 
-    posts.push({ date, href: `${baseFilename}.html`, title, utc })
-
     const outputFile = path.join(BUILD_DIR, `${baseFilename}.html`)
     fs.writeFileSync(outputFile, result)
 
     console.log(`${baseFilename} >>> ${title}`)
   })
+  return { date, href: `${baseFilename}.html`, title, utc }
 })
 
 const listTemplate = path.join(TEMPLATE_DIR, 'list.ejs')
