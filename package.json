@@ -11,6 +11,7 @@
     "dev": "npx http-server docs",
     "generate": "./generate.js",
     "lint": "standard --fix",
+    "new": "node bin/new.js",
     "serve": "npx http-server docs"
   },
   "repository": {
